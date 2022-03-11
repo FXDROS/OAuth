@@ -83,10 +83,14 @@ def register(mahasiswa: Mahasiswa):
     db.add(new_mahasiswa)
     db.commit()
 
+    return_mahasiswa = db.query(models.Mahasiswa).filter(models.Mahasiswa.username == mahasiswa.username).first()
+
     return {
-        "username" : mahasiswa.username,
-        "full_name" : mahasiswa.full_name,
-        "npm" : mahasiswa.npm,
+        "username" : return_mahasiswa.username,
+        "full_name" : return_mahasiswa.full_name,
+        "npm" : return_mahasiswa.npm,
+        "client_id" : return_mahasiswa.client_id,
+        "client_secret" : return_mahasiswa.client_secret,
     }
 
 @app.post('/oauth/token', status_code=status.HTTP_200_OK)
