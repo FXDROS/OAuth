@@ -152,5 +152,5 @@ def index():
     return { "Welcome To Dion's OAuth" }
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=20774)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=20774)
